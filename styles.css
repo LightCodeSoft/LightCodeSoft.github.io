@@ -5,7 +5,36 @@ body {
     box-sizing: border-box;
     min-width: 1024px;
 }
-
+.arrow-up {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;  /* 左边透明边界 */
+    border-right: 10px solid transparent; /* 右边透明边界 */
+    border-bottom: 10px solid #fff;       /* 底部实线边界，颜色可以自定义 */
+}
+.nav-qq .arrow-up{
+    position:absolute;
+    top:-10px;
+    left:45px;
+}
+.nav-qq .qq_qr_group{
+    display: none;
+    padding:10px;
+    background-color: #fff;
+    position:absolute;
+    margin-left: 25px;
+}
+.nav-qq .qq_qr_group img{
+    width:100px;
+    height:100px;
+}
+.nav-qq:hover div{
+    display: block;
+}
+.modal-body img{
+    width:200px;
+    margin-left: 130px;
+}
 .headerContent {
     height: 100%;
     width: 100%;

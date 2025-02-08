@@ -13,7 +13,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
             <a class="navbar-brand" href="https://winjscode.github.io/">WinJS</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -23,7 +23,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/docs/index.html">开发文档</a>
+                        <a class="nav-link" target="_blank" href="/docs/index.html">开发文档</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#funcNav">功能</a>
@@ -32,23 +32,28 @@
                         <a class="nav-link" href="#demoNav">案例</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">下载</a>
+                        <a class="nav-link" target="_blank"
+                            href="https://github.com/WinJSCode/WinJSCode.github.io/issues">提问</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">QQ群:1004749406</a>
+                    <li class="nav-item nav-qq">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#exampleModal">QQ群:1004749406</a>
+                        <div class="qq_qr_group shadow">
+                            <div class="arrow-up"></div>
+                            <img src="/imgs/qq_qr.jpg" />
+                        </div>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <header class="text-white text-center ">
-        <div class="headerContent py-5" >
+        <div class="headerContent py-5">
             <div class="headerPlaceholder"></div>
             <div class="headerTitleGroup">
                 <h1>欢迎使用WinJS</h1>
                 <p class="lead">一款使用HTML+JS+CSS快速构建应用的轻量级免费开发工具.</p>
-                <a href="https://codeload.github.com/WinJSCode/WinJSCode.github.io/zip/refs/tags/v1.0.1"
-                    class="btn btn-primary btn-lg downloadBtn">下载最新版V1.0.1</a>
+                <a href="https://codeload.github.com/WinJSCode/WinJSCode.github.io/zip/refs/tags/v1.0.2"
+                    class="btn btn-primary btn-lg downloadBtn">下载最新版V1.0.2</a>
             </div>
         </div>
     </header>
@@ -72,7 +77,7 @@
                     <div class="col-md-4">
                         <div class="feature bg-light p-4 mb-4 rounded">
                             <h3>安全可控</h3>
-                            <p>打包后的脚本加密存储，内置卡密功能，开发者可以通过卡密盈利。</p>
+                            <p>打包后的脚本加密存储，源码无法被盗取。内置卡密功能，开发者可以通过卡密盈利。</p>
                         </div>
                     </div>
                 </div>
@@ -105,6 +110,23 @@
             </div>
         </section>
     </main>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">加入QQ群：1004749406</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img src="/imgs/qq_qr.jpg" class="img-fluid" alt="Responsive image">
+                </div>
+            </div>
+        </div>
+    </div>
     <footer class="bg-dark text-white text-center py-4">
         <div class="container">
             <p>&copy; 2025 WinJS</p>
