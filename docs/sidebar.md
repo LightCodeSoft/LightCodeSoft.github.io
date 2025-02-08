@@ -1,4 +1,4 @@
-- [主页](https://winjscode.github.io/)
+- [主页](https://lightcodesoft.github.io/)
 - [快速开始](/快速开始.md)
 - [Native接口](/api.md)
   - [必读](/api/必读.md)

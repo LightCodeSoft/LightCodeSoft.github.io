@@ -1,5 +1,5 @@
 # 调用dll
-`WinJS`提供了一些`Native`接口，但无法满足所有开发者的需求，因此，特地提供了提供调用`C/C++`的能力。
+`LightCode`提供了一些`Native`接口，但无法满足所有开发者的需求，因此，特地提供了提供调用`C/C++`的能力。
 
 开发者可以使用`C/C++`开发**复杂的、耗时的、定制化的**功能，然后在`javascript`中轻松调用。
 
@@ -31,14 +31,14 @@ Native.invokeDll("user32.dll", "MessageBoxA", "void(int,str,str,int)", 0, "内�
 ```
 > 注意：如果需要加载指定目录的dll文件，需要将dll所在的目录加入到环境变量。
 
-例如，将`D:\MyWork\FirstWinJSProj`加入到环境变量，调用如下代码：
+例如，将`D:\MyWork\FirstProj`加入到环境变量，调用如下代码：
 ```javascript
-Native.addSysPath("D:\\MyWork\\FirstWinJSProj")
+Native.addSysPath("D:\\MyWork\\FirstProj")
 ```
 ---
 
 ## 指针类型
-`WinJS`允许你传入或返回指针类型，在函数原型中对应`ptr`。指针类型在`C/C++`中对应为`void*`，在`Javascript`中对应为`整数类型`。
+`LightCode`允许你传入或返回指针类型，在函数原型中对应`ptr`。指针类型在`C/C++`中对应为`void*`，在`Javascript`中对应为`整数类型`。
 
 对于复杂的数据结构，开发者可以在`C/C++`中将其封装成`struct`或`class`，然后通过指针的方式与`javascript`相互调用。
 
@@ -131,7 +131,7 @@ const char* addS(void* ptr, const char* s) {
 编译后，生成`TestDll.dll`文件。
 > 思考：`TestDll.dll`文件该放哪里？
 > 分多个场景：
-> 1. 调试场景：放入到WinJS.exe相同级目录或`project.json`相同级目录.
+> 1. 调试场景：放入到LightCode.exe相同级目录或`project.json`相同级目录.
 > 2. 打包场景：该文件不要放入到`project.json`目录，以防被一起打包到exe中。如果想要放入到`project.json`同级目录，则将该文件名加入到`project.json`的`exclude`列表内。
 > 3. 任意场景：将该文件拷贝到指定的目录`/path/to/dir`中，然后调用`Native.addSysPath(/path/to/dir)`函数，将该目录临时加入到环境变量中。
 ### 2. 界面开发
@@ -147,14 +147,14 @@ const char* addS(void* ptr, const char* s) {
     <script>
         function test() {
             let outDiv = document.getElementById("out");
-            let ptr = Native.invokeDll("TestDll.dll", "newClass", "ptr(int,float,str)", 11, 2.2, "Hello, WinJS!");
+            let ptr = Native.invokeDll("TestDll.dll", "newClass", "ptr(int,float,str)", 11, 2.2, "Hello, LightCode!");
             outDiv.innerHTML += "<div>MyClass pointer:" + ptr + "</div>";
             let addIOut = Native.invokeDll("TestDll.dll", "addI", "int(ptr,int)", ptr, 22);
             outDiv.innerHTML += "<div>11 + 22 = " + addIOut + "</div>";
             let addFOut = Native.invokeDll("TestDll.dll", "addF", "float(ptr,float)", ptr, 1.1);
             outDiv.innerHTML += "<div>2.2 + 1.1 = " + addFOut + "</div>";
             let addSOut = Native.invokeDll("TestDll.dll", "addS", "str(ptr,str)", ptr, "Hello World!");
-            outDiv.innerHTML += '<div>"Hello, WinJS!" + "Hello World!" = ' + addSOut + "</div><hr>";
+            outDiv.innerHTML += '<div>"Hello, LightCode!" + "Hello World!" = ' + addSOut + "</div><hr>";
         }
     </script>
 </head>
@@ -169,7 +169,7 @@ const char* addS(void* ptr, const char* s) {
 ### 3. 调试运行
 运行:
 ```bash
-C:\WinJS.exe -d D:\MyWork\FirstWinJSProj
+C:\LightCode.exe -d D:\MyWork\FirstProj
 ```
 启动界面调试，如下所示：
 
