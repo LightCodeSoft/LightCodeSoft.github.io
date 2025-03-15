@@ -1,7 +1,7 @@
 # Python快速开始
 
 ## Python环境准备
-在使用Python之前，需要下载好Python环境。在`project.json`文件中设置`Python版本`、`Python下载镜像`、`PIP镜像`，如下所示:
+在使用`Python`之前，需要下载好`Python`环境。在`project.json`文件中设置`Python版本`、`Python下载镜像`、`PIP镜像`，如下所示:
 ```json
 {
     //其他略...
