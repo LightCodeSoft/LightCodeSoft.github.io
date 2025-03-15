@@ -99,7 +99,7 @@ thread.join()
 ## 运行软件
 
 ```shell
-LightCode.exe -d  D:\MyWork\test_python
+LightCode.exe -d -w D:\MyWork\test_python
 ```
 软件运行结果如下，可以看到，**抛出的异常也被抓到并显示**：
 
