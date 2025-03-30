@@ -52,6 +52,24 @@ interface NativeInterface {
     hookKeyboad(callback: (data: any) => void);
     setOnClickCloseIconListener(listener: () => void): void;
 
+    captureConsoleOutput(cb: (output: string, isStdOut: boolean) => void);
+    initPython(ver: string): void;
+    runPythonFile(path: string): void;
+    getWorkspace(): string;
+
+    getTaskbarRect(): any;//return {"left":left, "right":right, "top":top, "bottom":bottom}
+    getScreenRect(): any;// return {"left":left, "right":right, "top":top, "bottom":bottom}
+
+    getHWND(): HWND; // Get the HWND of current window
+    getMainHWND(): HWND; // Get the HWND of main window
+
+    //default=>  x=-1 (center), y=-1 (center), title="", borderless=false, borderWidth=1, bgColor="#F0F0F0"
+    createWin(entry: string, width: number, height: number, x?: number, y?: number,
+                title?: string, borderless?: boolean, borderWidth?: number, bgColor?: string): HWND;//return HWND
+    destroyWin(hwnd: number): void;//
+    postWinMsg(toHWND: HWND, data: any): void;
+    addWinMsgListener(cb: (data: any) => void): void;
+
 }
 declare global {
     interface Window {

@@ -190,3 +190,98 @@ addNativeMsgListener(type: string, cb: (data:any)=>void);
 - **cb：** 回调函数。参数data用于接受消息数据。
 - **返回：** 无。
 ---
+
+## getTaskbarRect
+获取任务栏所在的区域
+```javascript
+//return {"left":left, "right":right, "top":top, "bottom":bottom}
+getTaskbarRect(): any;
+```
+- **返回：** 返回对象格式：`{"left":left, "right":right, "top":top, "bottom":bottom}`。
+
+---
+
+
+## getScreenRect
+获取屏幕所在区域，该区域`不包含任务栏`。
+```javascript
+// return {"left":left, "right":right, "top":top, "bottom":bottom}
+getScreenRect(): any;
+```
+- **返回：** 返回对象格式：`{"left":left, "right":right, "top":top, "bottom":bottom}`。
+
+---
+
+## getHWND
+获取当前`html`所在的窗口的`HWND`句柄，句柄可以看成是一个`id`，用于区分不同窗口。
+```javascript
+getHWND(): HWND; // Get the HWND of current window
+```
+- **返回：** `HWND`类型，即整数类型，代表当前窗口的句柄。
+
+---
+
+## getMainHWND
+获取主窗口的`HWND`句柄，句柄可以看成是一个`id`，用于区分不同窗口。
+```javascript
+// Get the HWND of main window
+getMainHWND(): HWND;
+```
+
+- **返回：** `HWND`类型，即整数类型，代表主窗口的句柄。
+
+---
+
+## createWin
+
+创建子窗口
+
+```javascript
+//default=>  x=-1 (center), y=-1 (center), title="", borderless=false, borderWidth=1, bgColor="#F0F0F0"
+createWin(entry: string, width: number, height: number, x?: number, y?: number,
+            title?: string, borderless?: boolean, borderWidth?: number, bgColor?: string): HWND;
+```
+- **entry：** 字符串类型，传入用于渲染的`html`文件路径，推荐用相对路径。
+- **width：** 整数类型，表示创建的子窗口的`宽度`。
+- **height：** 整数类型，表示创建的子窗口的`高度`。
+- **x：** 整数类型，表示创建的子窗口的`x坐标`，默认为`-1`表示居中。
+- **y：** 整数类型，表示创建的子窗口的`y坐标`，默认为`-1`表示居中。
+- **title：** 字符串类型，表示创建的子窗口的`标题`。
+- **borderless：** `boolean`类型，表示创建的子窗口是否是无边框，默认为`false`。
+- **borderWidth：** 整数类型，表示创建的子窗口的`边框宽度`，只有`borderless`为`true`时生效。
+- **bgColor：** 字符串类型，表示创建的子窗口背景色，默认为`#F0F0F0`。
+- **返回：** `HWND`类型，表示创建的子窗口句柄。
+
+---
+
+## destroyWin
+销毁指定窗口，通过`hwnd`句柄指定窗口。
+```javascript
+destroyWin(hwnd: number): void;
+```
+- **hwnd：** `HWND`类型，表示销毁的窗口的句柄。
+- **返回：** 无。
+
+---
+
+
+## postWinMsg
+向指定窗口发送数据。
+```javascript
+postWinMsg(toHWND: HWND, data: any): void;
+```
+- **toHWND：** `HWND`类型，表示接受数据的窗口的句柄。
+- **data：** 任意能被JSON字符串化的数据，该数据会被传递给指定窗口。
+- **返回：** 无。
+
+---
+
+## addWinMsgListener
+添加监听器，用于监听其他窗口传递到当前窗口的数据
+```javascript
+addWinMsgListener(cb: (data: any) => void): void;
+```
+- **cb：** 回调函数，当有其他窗口向当前窗口发送数据时会触发该函数回调。
+- **返回：** 无。
+---
+
