@@ -46,10 +46,12 @@ interface NativeInterface {
     hideWindow(): void;
     minWindow(): void;
     maxWindow(): void;
-    normalWindow(): void;
+    normWindow(): void;
     isWindowMaximized(): boolean;
     isWindowVisible(): boolean;
-    hookKeyboad(callback: (data: any) => void);
+    hookKeyboard(callback: (data: any) => void);
+    hookMouse(callback: (data: any) => void);
+
     setOnClickCloseIconListener(listener: () => void): void;
 
     captureConsoleOutput(cb: (output: string, isStdOut: boolean) => void);

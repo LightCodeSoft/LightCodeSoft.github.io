@@ -88,10 +88,10 @@ maxWindow(): void;
 - **返回：** 无。
 ---
 
-## normalWindow
+## normWindow
 恢复正常软件窗口。
 ```javascript
-normalWindow(): void;
+normWindow(): void;
 ```
 - **返回：** 无。
 ---
@@ -112,14 +112,6 @@ isWindowVisible(): boolean;
 - **返回：** boolean, 当前窗口是否可见。
 ---
 
-## hookKeyboad
-监听键盘按键。
-```javascript
-hookKeyboad(callback: (data: any) => void);
-```
-- **data：** `Object`类型，有`2`个字段：`type`和`code`。其中，`type`的值为`keydown`或`keyup`;`code`的值为键盘按键的`vk`值。
-- **返回：** 无。
----
 
 ## setOnClickCloseIconListener
 添加右上角关闭按钮点击监听。
